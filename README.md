@@ -90,7 +90,7 @@ Once again, you want to create a visualization that answers: what segments of us
 
 You can create any kind of visualization that you think best answers the question. e.g. static or interactive, using HTML5 or python. Feel free to use any tools you're familiar with, or try out that new data viz library you heard so much about.
 
-To submit your visualization, star and fork the data viz challenge repo on Github here <link to github repo>. This github repository also contains the JSON data. Submit a pull request when your submission is ready with some instructions on how to run your code or a link to a hosted version. Submit an issue on Github with any questions you have, or email sjain@localytics.com.
+To submit your visualization, star and fork the data viz challenge repo on Github here https://github.com/localytics/data-viz-challenge. This github repository also contains the JSON data. Submit a pull request when your submission is ready with some instructions on how to run your code or a link to a hosted version. Submit an issue on Github with any questions you have, or email sjain@localytics.com.
 
 The challenge ends <TBD>. A team of data-viz experts will judge all submissions, and we'll showcase the best ones. Good luck and have fun!
 

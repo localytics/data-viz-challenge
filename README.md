@@ -15,3 +15,7 @@ Run the ipython notebook and select "Localytics Data Viz Challenge.ipynb":
 Convert the ipython notebook to standalone html:
 
 `ipython nbconvert Localytics\ Data\ Viz\ Challenge.ipynb --to html`
+
+## Generate choropleth maps
+
+`python visualize.py`

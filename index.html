@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Localytics Data Viz Challenge by localytics</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Localytics Data Viz Challenge</h1>
+        <h2></h2>
+        <a href="https://github.com/localytics/data-viz-challenge" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="localytics-data-visualization-challenge" class="anchor" href="#localytics-data-visualization-challenge"><span class="octicon octicon-link"></span></a>Localytics Data Visualization Challenge</h1>
+
+<p>Have you been itching to try that new data visualization library you saw on Hacker News? Do you enjoy data science or frontend development? Looking for a weekend project to hone your skills? Localytics is hosting a challenge with prizes to help bolster the data visualization community.</p>
+
+<p>Given some analytics data, you'll create a visualization for BootLoader, a fictional crowdfunding mobile app, to help determine what segment of users would be interested in a new bicycle project. Read on for more details!</p>
+
+<h2>
+<a name="prizes" class="anchor" href="#prizes"><span class="octicon octicon-link"></span></a>Prizes</h2>
+
+<p>A team of data-viz experts will judge all submissions. We'll showcase the best submissions, and have a $1000 cash prize for first place!</p>
+
+<h2>
+<a name="your-task" class="anchor" href="#your-task"><span class="octicon octicon-link"></span></a>Your task</h2>
+
+<p>BootLoader is a mobile app that helps people crowdfund their creative projects. Anyone with an idea, dream, and 2-minute video can post their project on BootLoader. Others then donate money to the project to help bring it to fruition.</p>
+
+<p>Dennis Ridesalot, a BootLoader user, has a new concept for a 3-speed bicycle made from recycled parts with a $20 price point. The BootLoader team wants to send a push notification to their users, prompting them to fund the project. However, they don't want to send a message to all of their users--only those who they think would be interested.</p>
+
+<p>That's where you come in. You're the resident data expert at BootLoader. You'd like to create a visualization that helps answer: what kinds of users would be interested in the bicycle project?</p>
+
+<p>Luckily, you've been collecting analytics data on how your users fund projects. You also have software that can send push notification to segments of users, based on attributes like location, age range, gender, and mobile device.</p>
+
+<p>For example, you can send a push notification to all iOS users in Chicago, IL that says "Deep dish lovers unite! Help fund the largest pizza in the world on BootLoader."</p>
+
+<h2>
+<a name="the-data" class="anchor" href="#the-data"><span class="octicon octicon-link"></span></a>The Data</h2>
+
+<p>Your analytics software tracks the events: "View Project" and "Fund Project," for when a user views details about a project and for when they fund a project. The events also have the following attributes:</p>
+
+<ul>
+<li>
+<code>category</code>: what the project is about, e.g. "Sports", "Fashion", "Technology", etc.</li>
+<li>
+<code>client_time</code>: a UNIX timestamp of when the event occurred.</li>
+<li>
+<code>amount</code>: how much the user donated (for "Fund Project" only)</li>
+</ul><p><em>Note:</em> The bicycle project belongs to two categories: "Sports" and "Environment."</p>
+
+<p>Additionally, you know some information about each user on your site, that they supplied in a survey when they signed up. Specifically, you know:</p>
+
+<ul>
+<li>
+<code>session_id</code>: unique identifier for each user</li>
+<li>
+<code>age range</code>: one of ['18-24', '25-34', '35-44', '45-54', '55+']</li>
+<li>
+<code>gender</code>: one of ['M', 'F']</li>
+<li>
+<code>location</code>:
+
+<ul>
+<li>
+<code>city</code>: a city in the United States</li>
+<li>
+<code>state</code>: a state in the United States</li>
+<li><code>latitude</code></li>
+<li><code>longitude</code></li>
+</ul>
+</li>
+<li>
+<code>marital_status</code>: one of ['single', 'married']</li>
+<li>
+<code>device</code>: one of ['iOS', 'android']</li>
+</ul><p>From past experiments, you know that each user generally likes projects from the same category. For example, User A almost always views and funds projects from the "Technology" category. The bicycle project belongs to two categories: "Sports" and "Environment."</p>
+
+<p>You have a sampled time series of 50,000 events from one month this year in a JSON blob. User data is added into every event. Note that BootLoader has more users than are represented by this sample.</p>
+
+<p>Here's an example of two events by the same user:</p>
+
+<pre><code>{
+  "event_name": "View Project",
+  "gender": "M",
+  "marital_status": "single",
+  "session_id": "98ccfbe8c29845c0a44f8e56213d1def",
+  "device": "android",
+  "tag": "Technology",
+  "age": "25-34",
+  "client_time": 1393632024,
+  "location": {
+    "latitude": 33.786594,
+    "city": "Covina",
+    "state": "CA",
+    "longitude": -118.298662,
+    "zip_code": "91723"
+  }
+}
+
+{
+  "event_name": "Fund Project",
+  "gender": "M",
+  "marital_status": "single",
+  "session_id": "98ccfbe8c29845c0a44f8e56213d1def",
+  "device": "android",
+  "amount": 20,
+  "tag": "Technology",
+  "age": "25-34",
+  "client_time": 1393632301,
+  "location": {
+    "latitude": 33.786594,
+    "city": "Covina",
+    "state": "CA",
+    "longitude": -118.298662,
+    "zip_code": "91723"
+  }
+}
+</code></pre>
+
+<h2>
+<a name="your-submission" class="anchor" href="#your-submission"><span class="octicon octicon-link"></span></a>Your submission</h2>
+
+<p>Once again, you want to create a visualization that answers: what segments of users would be interested in the bicycle project? Based on your visualization, BootLoader would send a push notification to those segments that advertises the bicycle project.</p>
+
+<p>You can create any kind of visualization that you think best answers the question. e.g. static or interactive, using HTML5 or python. Feel free to use any tools you're familiar with, or try out that new data viz library you heard so much about.</p>
+
+<p>To submit your visualization, star and fork the data viz challenge repo on Github here <a href="https://github.com/localytics/data-viz-challenge">https://github.com/localytics/data-viz-challenge</a>. This github repository also contains the JSON data. Submit a pull request when your submission is ready with some instructions on how to run your code or a link to a hosted version. Submit an issue on Github with any questions you have, or email <a href="mailto:sjain@localytics.com">sjain@localytics.com</a>.</p>
+
+<p>The challenge ends . A team of data-viz experts will judge all submissions, and we'll showcase the best ones. Good luck and have fun!</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/localytics/data-viz-challenge/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/localytics/data-viz-challenge/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/localytics/data-viz-challenge"></a> is maintained by <a href="https://github.com/localytics">localytics</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>

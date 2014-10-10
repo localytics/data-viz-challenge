@@ -2,7 +2,7 @@
 
 Have you been itching to try that new data visualization library you saw on Hacker News? Do you enjoy data science or frontend development? Looking for a weekend project to hone your skills? Localytics is hosting a challenge with prizes to help bolster the data visualization community.
 
-Given some analytics data, you'll create a visualization for BootLoader, a fictional crowdfunding mobile app, to help determine what segment of users would be interested in a new bicycle project. Read on for more details!
+Given some analytics data, you'll create a visualization for BootLoader, a fictional crowdfunding mobile app, to help determine what segment of users would be interested in a new bicycle project. Read on for more details, and don't forget to checkout out our promotion site at http://data-viz-challenge.localytics.com
 ## Prizes
 
 A team of data-viz experts will judge all submissions. We'll showcase the best submissions, and have a $1000 cash prize for first place!
@@ -90,7 +90,7 @@ Once again, you want to create a visualization that answers: what segments of us
 
 You can create any kind of visualization that you think best answers the question. e.g. static or interactive, using HTML5 or python. Feel free to use any tools you're familiar with, or try out that new data viz library you heard so much about.
 
-To submit your visualization, star and fork the data viz challenge repo on Github here https://github.com/localytics/data-viz-challenge. This github repository also contains the JSON data. Submit a pull request when your submission is ready with some instructions on how to run your code or a link to a hosted version. Submit an issue on Github with any questions you have, or email sjain@localytics.com.
+To submit your visualization, star and fork the data viz challenge repo on Github here https://github.com/localytics/data-viz-challenge. This github repository also contains the JSON data. Submit a pull request when your submission is ready with some instructions on how to run your code or a link to a hosted version. Submit an issue on Github with any questions you have, or email dthompson@localytics.com.
 
-The challenge ends <TBD>. A team of data-viz experts will judge all submissions, and we'll showcase the best ones. Good luck and have fun!
+The challenge ends December 1st, 2014. A team of data-viz experts will judge all submissions, and we'll showcase the best ones. Good luck and have fun!
 

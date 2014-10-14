@@ -32,7 +32,7 @@ Additionally, you know some information about each user on your site, that they 
 
 * `session_id`: unique identifier for each user
 * `age range`: one of ['18-24', '25-34', '35-44', '45-54', '55+']
-* `gender`: one of ['M', 'F']
+* `gender`: one of ['M', 'F', 'O', 'U']
 * `location`:
  * `city`: a city in the United States
  * `state`: a state in the United States

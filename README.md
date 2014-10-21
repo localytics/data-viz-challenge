@@ -53,7 +53,7 @@ Here's an example of two events by the same user:
       "marital_status": "single",
       "session_id": "98ccfbe8c29845c0a44f8e56213d1def",
       "device": "android",
-      "tag": "Technology",
+      "category": "Technology",
       "age": "25-34",
       "client_time": 1393632024,
       "location": {
@@ -72,7 +72,7 @@ Here's an example of two events by the same user:
       "session_id": "98ccfbe8c29845c0a44f8e56213d1def",
       "device": "android",
       "amount": 20,
-      "tag": "Technology",
+      "category": "Technology",
       "age": "25-34",
       "client_time": 1393632301,
       "location": {

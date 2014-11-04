@@ -13,15 +13,15 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Localytics Data Viz Challenge by localytics</title>
+    <title>Localytics Data Viz Challenge by rhiever</title>
   </head>
 
   <body>
     <header>
       <div class="inner">
         <h1>Localytics Data Viz Challenge</h1>
-        <h2></h2>
-        <a href="https://github.com/localytics/data-viz-challenge" class="button"><small>View project on</small>GitHub</a>
+        <h2>Randy Olson&#39;s submission</h2>
+        <a href="https://github.com/rhiever/data-viz-challenge" class="button"><small>View project on</small> GitHub</a>
       </div>
     </header>
 
@@ -29,19 +29,10 @@
       <div class="inner clearfix">
         <section id="main-content">
           <h1>
-<a name="localytics-data-visualization-challenge" class="anchor" href="#localytics-data-visualization-challenge"><span class="octicon octicon-link"></span></a>Localytics Data Visualization Challenge</h1>
-
-<p>Have you been itching to try that new data visualization library you saw on Hacker News? Do you enjoy data science or frontend development? Looking for a weekend project to hone your skills? Localytics is hosting a challenge with prizes to help bolster the data visualization community.</p>
-
-<p>Given some analytics data, you'll create a visualization for BootLoader, a fictional crowdfunding mobile app, to help determine what segment of users would be interested in a new bicycle project. Read on for more details!</p>
+<a name="where-would-bootloader-users-fund-dennis-ridesalots-bike-project" class="anchor" href="#where-would-bootloader-users-fund-dennis-ridesalots-bike-project"><span class="octicon octicon-link"></span></a>Where would BootLoader users fund Dennis Ridesalot's bike project?</h1>
 
 <h2>
-<a name="prizes" class="anchor" href="#prizes"><span class="octicon octicon-link"></span></a>Prizes</h2>
-
-<p>A team of data-viz experts will judge all submissions. We'll showcase the best submissions, and have a $1000 cash prize for first place!</p>
-
-<h2>
-<a name="your-task" class="anchor" href="#your-task"><span class="octicon octicon-link"></span></a>Your task</h2>
+<a name="task-description" class="anchor" href="#task-description"><span class="octicon octicon-link"></span></a>Task description</h2>
 
 <p>BootLoader is a mobile app that helps people crowdfund their creative projects. Anyone with an idea, dream, and 2-minute video can post their project on BootLoader. Others then donate money to the project to help bring it to fruition.</p>
 
@@ -54,111 +45,69 @@
 <p>For example, you can send a push notification to all iOS users in Chicago, IL that says "Deep dish lovers unite! Help fund the largest pizza in the world on BootLoader."</p>
 
 <h2>
-<a name="the-data" class="anchor" href="#the-data"><span class="octicon octicon-link"></span></a>The Data</h2>
+<a name="initial-analysis" class="anchor" href="#initial-analysis"><span class="octicon octicon-link"></span></a>Initial analysis</h2>
 
-<p>Your analytics software tracks the events: "View Project" and "Fund Project," for when a user views details about a project and for when they fund a project. The events also have the following attributes:</p>
-
-<ul>
-<li>
-<code>category</code>: what the project is about, e.g. "Sports", "Fashion", "Technology", etc.</li>
-<li>
-<code>client_time</code>: a UNIX timestamp of when the event occurred.</li>
-<li>
-<code>amount</code>: how much the user donated (for "Fund Project" only)</li>
-</ul><p><em>Note:</em> The bicycle project belongs to two categories: "Sports" and "Environment."</p>
-
-<p>Additionally, you know some information about each user on your site, that they supplied in a survey when they signed up. Specifically, you know:</p>
-
-<ul>
-<li>
-<code>session_id</code>: unique identifier for each user</li>
-<li>
-<code>age range</code>: one of ['18-24', '25-34', '35-44', '45-54', '55+']</li>
-<li>
-<code>gender</code>: one of ['M', 'F']</li>
-<li>
-<code>location</code>:
-
-<ul>
-<li>
-<code>city</code>: a city in the United States</li>
-<li>
-<code>state</code>: a state in the United States</li>
-<li><code>latitude</code></li>
-<li><code>longitude</code></li>
-</ul>
-</li>
-<li>
-<code>marital_status</code>: one of ['single', 'married']</li>
-<li>
-<code>device</code>: one of ['iOS', 'android']</li>
-</ul><p>From past experiments, you know that each user generally likes projects from the same category. For example, User A almost always views and funds projects from the "Technology" category. The bicycle project belongs to two categories: "Sports" and "Environment."</p>
-
-<p>You have a sampled time series of 50,000 events from one month this year in a JSON blob. User data is added into every event. Note that BootLoader has more users than are represented by this sample.</p>
-
-<p>Here's an example of two events by the same user:</p>
-
-<pre><code>{
-  "event_name": "View Project",
-  "gender": "M",
-  "marital_status": "single",
-  "session_id": "98ccfbe8c29845c0a44f8e56213d1def",
-  "device": "android",
-  "tag": "Technology",
-  "age": "25-34",
-  "client_time": 1393632024,
-  "location": {
-    "latitude": 33.786594,
-    "city": "Covina",
-    "state": "CA",
-    "longitude": -118.298662,
-    "zip_code": "91723"
-  }
-}
-
-{
-  "event_name": "Fund Project",
-  "gender": "M",
-  "marital_status": "single",
-  "session_id": "98ccfbe8c29845c0a44f8e56213d1def",
-  "device": "android",
-  "amount": 20,
-  "tag": "Technology",
-  "age": "25-34",
-  "client_time": 1393632301,
-  "location": {
-    "latitude": 33.786594,
-    "city": "Covina",
-    "state": "CA",
-    "longitude": -118.298662,
-    "zip_code": "91723"
-  }
-}
-</code></pre>
+<p>After an initial exploratory analysis into BootLoader funding behavior, it became clear that location plays the biggest role in whether a BootLoader user will fund a Sports or Environment project. Although the BootLoader user base has certain demographic biases -- for example, there's a huge user base spread across Indiana, there's more married users than single users, and there's far more 18-24 year old users than older users -- none of these demographic factors played a significant role in the <em>rate</em> at which the users would fund Sports or Environment projects. Therefore, for this visualization I chose to focus on the geographic patterns within the data set.</p>
 
 <h2>
-<a name="your-submission" class="anchor" href="#your-submission"><span class="octicon octicon-link"></span></a>Your submission</h2>
+<a name="visualization" class="anchor" href="#visualization"><span class="octicon octicon-link"></span></a>Visualization</h2>
 
-<p>Once again, you want to create a visualization that answers: what segments of users would be interested in the bicycle project? Based on your visualization, BootLoader would send a push notification to those segments that advertises the bicycle project.</p>
+<p>For this map, I wanted to answer two major questions that would be relevant to Ridesalot's campaign:</p>
 
-<p>You can create any kind of visualization that you think best answers the question. e.g. static or interactive, using HTML5 or python. Feel free to use any tools you're familiar with, or try out that new data viz library you heard so much about.</p>
+<ol>
+<li><p>Where are people using BootLoader?</p></li>
+<li><p>Where are people funding Sports and Environment projects?</p></li>
+</ol>
 
-<p>To submit your visualization, star and fork the data viz challenge repo on Github here <a href="https://github.com/localytics/data-viz-challenge">https://github.com/localytics/data-viz-challenge</a>. This github repository also contains the JSON data. Submit a pull request when your submission is ready with some instructions on how to run your code or a link to a hosted version. Submit an issue on Github with any questions you have, or email <a href="mailto:sjain@localytics.com">sjain@localytics.com</a>.</p>
+<p>To answer these questions visually, I chose to use dots to represent the geolocations of groups of users. The size of the dot corresponds to the number of BootLoader users in that part of the U.S., whereas the opacity of the dot corresponds to the percentage of BootLoader project views that resulted in funded Sports or Environment projects.</p>
 
-<p>The challenge ends . A team of data-viz experts will judge all submissions, and we'll showcase the best ones. Good luck and have fun!</p>
+<p><a href="us-map-bike-funding-annotated.png"><img src="us-map-bike-funding-annotated.png"></a></p>
+
+<p>Numerous significant trends reveal themselves in this map. First and foremost, there are several hubs of BootLoader users throughout the U.S., most of which correspond to major U.S. cities:</p>
+
+<ul>
+<li><p>Los Angeles, California</p></li>
+<li><p>Portland, Oregon</p></li>
+<li><p>Denver, Colorado</p></li>
+<li><p>Houston, Texas</p></li>
+<li><p>Atlanta, Georgia</p></li>
+<li><p>Chicago, Illinois</p></li>
+<li><p>New York City, New York</p></li>
+</ul>
+
+<p>It also appears that BootLoader has attained widespread adoption throughout Indiana. More importantly, several of these hubs -- namely, Portland, Oregon; Denver, Colorado; and Atlanta, Georgia -- tend to see an impressive 50% or more of their Sports and Environment projects ultimately funded when viewed. The areas around Indianapolis, Indiana also see a good funding rate for Sports and Environment projects, but the user base in Indianapolis is considerably smaller.</p>
+
+<h2>
+<a name="conclusions" class="anchor" href="#conclusions"><span class="octicon octicon-link"></span></a>Conclusions</h2>
+
+<p>To maximize funding rate while annoying the fewest BootLoader users with unnecessary push notifications, Ridesalot's advertisement should be sent out to BootLoader users in the following cities:</p>
+
+<ul>
+<li><p>Portland, Oregon</p></li>
+<li><p>Denver, Colorado</p></li>
+<li><p>Atlanta, Georgia</p></li>
+<li><p>Indianapolis, Indiana</p></li>
+</ul>
+
+<p>These cities are likely to result in a high funding rate for Ridesalot's project and will be seen by a large user base, thus giving Ridesalot's project the best possible chances at reaching its funding goal.</p>
+
+<h2>
+<a name="Code" class="anchor" href="#code"><span class="octicon octicon-link"></span></a>Code</h2>
+
+<p>All of the Python code necessary to parse, analyze, and visualize the data is available in an <a href="http://nbviewer.ipython.org/github/rhiever/data-viz-challenge/blob/gh-pages/Generate%20Map.ipynb">IPython Notebook</a>. It is recommended to install Python via the <a href="http://continuum.io/downloads">Anaconda Python Distribution</a> to ensure that all necessary libraries are installed.</p>
         </section>
 
         <aside id="sidebar">
-          <a href="https://github.com/localytics/data-viz-challenge/zipball/master" class="button">
+          <a href="https://github.com/rhiever/data-viz-challenge/zipball/master" class="button">
             <small>Download</small>
             .zip file
           </a>
-          <a href="https://github.com/localytics/data-viz-challenge/tarball/master" class="button">
+          <a href="https://github.com/rhiever/data-viz-challenge/tarball/master" class="button">
             <small>Download</small>
             .tar.gz file
           </a>
 
-          <p class="repo-owner"><a href="https://github.com/localytics/data-viz-challenge"></a> is maintained by <a href="https://github.com/localytics">localytics</a>.</p>
+          <p class="repo-owner"><a href="https://github.com/rhiever/data-viz-challenge"></a> is maintained by <a href="https://github.com/rhiever">rhiever</a>.</p>
 
           <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
         </aside>

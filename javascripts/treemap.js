@@ -122,6 +122,8 @@ function getMetric() {
         return function(d){ return d.dollars/d.users; };
     } else if(option === 't') {
         return function(d){ return d.dollars; };
+    } else if(option === 'p') {
+        return function(d){ return d.fund_event_count/d.view_event_count; };
     }
 }
 

@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <meta name="description" content="Localytics Data Viz Challenge : ">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Localytics Data Viz Challenge by localytics</title>
+    <title>Localytics Data Viz Challenge</title>
   </head>
 
   <body>
-    <header>
-      <div class="inner">
-        <h1>Localytics Data Viz Challenge</h1>
-        <h2></h2>
-        <a href="https://github.com/localytics/data-viz-challenge" class="button"><small>View project on</small>GitHub</a>
-      </div>
-    </header>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
-<a name="localytics-data-visualization-challenge" class="anchor" href="#localytics-data-visualization-challenge"><span class="octicon octicon-link"></span></a>Localytics Data Visualization Challenge</h1>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Domajno/data-viz-challenge">View on GitHub</a>
+
+          <h1 id="project_title">Localytics Data Viz Challenge</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Domajno/data-viz-challenge/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Domajno/data-viz-challenge/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="localytics-data-visualization-challenge" class="anchor" href="#localytics-data-visualization-challenge" aria-hidden="true"><span class="octicon octicon-link"></span></a>Localytics Data Visualization Challenge</h1>
 
 <p>Have you been itching to try that new data visualization library you saw on Hacker News? Do you enjoy data science or frontend development? Looking for a weekend project to hone your skills? Localytics is hosting a challenge with prizes to help bolster the data visualization community.</p>
 
 <p>Given some analytics data, you'll create a visualization for BootLoader, a fictional crowdfunding mobile app, to help determine what segment of users would be interested in a new bicycle project. Read on for more details!</p>
 
 <h2>
-<a name="prizes" class="anchor" href="#prizes"><span class="octicon octicon-link"></span></a>Prizes</h2>
-
-<p>A team of data-viz experts will judge all submissions. We'll showcase the best submissions, and have a $1000 cash prize for first place!</p>
-
-<h2>
-<a name="your-task" class="anchor" href="#your-task"><span class="octicon octicon-link"></span></a>Your task</h2>
+<a id="your-task" class="anchor" href="#your-task" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your task</h2>
 
 <p>BootLoader is a mobile app that helps people crowdfund their creative projects. Anyone with an idea, dream, and 2-minute video can post their project on BootLoader. Others then donate money to the project to help bring it to fruition.</p>
 
@@ -53,8 +51,31 @@
 
 <p>For example, you can send a push notification to all iOS users in Chicago, IL that says "Deep dish lovers unite! Help fund the largest pizza in the world on BootLoader."</p>
 
+<h1>
+<a id="solution---target-your-campaign-in-three-steps" class="anchor" href="#solution---target-your-campaign-in-three-steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solution - target your campaign in three steps</h1>
+
 <h2>
-<a name="the-data" class="anchor" href="#the-data"><span class="octicon octicon-link"></span></a>The Data</h2>
+<a id="1-filter-your-data" class="anchor" href="#1-filter-your-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Filter your data</h2>
+
+<p>Only events from selected categories will be used in the analysis.</p>
+
+<h2>
+<a id="2-select-dimensions" class="anchor" href="#2-select-dimensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Select dimensions</h2>
+
+<p>Decide how you want to segment your customers. Choose as many dimensions as necessary and experiment with their order.</p>
+
+<h2>
+<a id="3-choose-metric" class="anchor" href="#3-choose-metric" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Choose metric</h2>
+
+<p>Finally, select the metric you wish to visualize. Segments with high value of this metric will be displayed with dark green.</p>
+
+<h2>
+<a id="visualization" class="anchor" href="#visualization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Visualization</h2>
+
+<p>This interactive visualization represents a treemap and was done using D3.js.</p>
+
+<h2>
+<a id="the-data" class="anchor" href="#the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Data</h2>
 
 <p>Your analytics software tracks the events: "View Project" and "Fund Project," for when a user views details about a project and for when they fund a project. The events also have the following attributes:</p>
 
@@ -65,7 +86,9 @@
 <code>client_time</code>: a UNIX timestamp of when the event occurred.</li>
 <li>
 <code>amount</code>: how much the user donated (for "Fund Project" only)</li>
-</ul><p><em>Note:</em> The bicycle project belongs to two categories: "Sports" and "Environment."</p>
+</ul>
+
+<p><em>Note:</em> The bicycle project belongs to two categories: "Sports" and "Environment."</p>
 
 <p>Additionally, you know some information about each user on your site, that they supplied in a survey when they signed up. Specifically, you know:</p>
 
@@ -92,7 +115,9 @@
 <code>marital_status</code>: one of ['single', 'married']</li>
 <li>
 <code>device</code>: one of ['iOS', 'android']</li>
-</ul><p>From past experiments, you know that each user generally likes projects from the same category. For example, User A almost always views and funds projects from the "Technology" category. The bicycle project belongs to two categories: "Sports" and "Environment."</p>
+</ul>
+
+<p>From past experiments, you know that each user generally likes projects from the same category. For example, User A almost always views and funds projects from the "Technology" category. The bicycle project belongs to two categories: "Sports" and "Environment."</p>
 
 <p>You have a sampled time series of 50,000 events from one month this year in a JSON blob. User data is added into every event. Note that BootLoader has more users than are represented by this sample.</p>
 
@@ -135,36 +160,18 @@
   }
 }
 </code></pre>
-
-<h2>
-<a name="your-submission" class="anchor" href="#your-submission"><span class="octicon octicon-link"></span></a>Your submission</h2>
-
-<p>Once again, you want to create a visualization that answers: what segments of users would be interested in the bicycle project? Based on your visualization, BootLoader would send a push notification to those segments that advertises the bicycle project.</p>
-
-<p>You can create any kind of visualization that you think best answers the question. e.g. static or interactive, using HTML5 or python. Feel free to use any tools you're familiar with, or try out that new data viz library you heard so much about.</p>
-
-<p>To submit your visualization, star and fork the data viz challenge repo on Github here <a href="https://github.com/localytics/data-viz-challenge">https://github.com/localytics/data-viz-challenge</a>. This github repository also contains the JSON data. Submit a pull request when your submission is ready with some instructions on how to run your code or a link to a hosted version. Submit an issue on Github with any questions you have, or email <a href="mailto:sjain@localytics.com">sjain@localytics.com</a>.</p>
-
-<p>The challenge ends . A team of data-viz experts will judge all submissions, and we'll showcase the best ones. Good luck and have fun!</p>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/localytics/data-viz-challenge/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/localytics/data-viz-challenge/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/localytics/data-viz-challenge"></a> is maintained by <a href="https://github.com/localytics">localytics</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+      </section>
     </div>
 
-  
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Localytics Data Viz Challenge maintained by <a href="https://github.com/Domajno">Domajno</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
   </body>
 </html>

@@ -22,8 +22,8 @@
           <h2 id="project_tagline"></h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/Domajno/data-viz-challenge/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/Domajno/data-viz-challenge/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/Domajno/data-viz-challenge/zipball/gh-pages">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Domajno/data-viz-challenge/tarball/gh-pages">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
@@ -31,15 +31,9 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>
-<a id="localytics-data-visualization-challenge" class="anchor" href="#localytics-data-visualization-challenge" aria-hidden="true"><span class="octicon octicon-link"></span></a>Localytics Data Visualization Challenge</h1>
-
-<p>Have you been itching to try that new data visualization library you saw on Hacker News? Do you enjoy data science or frontend development? Looking for a weekend project to hone your skills? Localytics is hosting a challenge with prizes to help bolster the data visualization community.</p>
-
-<p>Given some analytics data, you'll create a visualization for BootLoader, a fictional crowdfunding mobile app, to help determine what segment of users would be interested in a new bicycle project. Read on for more details!</p>
 
 <h2>
-<a id="your-task" class="anchor" href="#your-task" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your task</h2>
+<a id="your-task" class="anchor" href="#your-task" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task</h2>
 
 <p>BootLoader is a mobile app that helps people crowdfund their creative projects. Anyone with an idea, dream, and 2-minute video can post their project on BootLoader. Others then donate money to the project to help bring it to fruition.</p>
 
@@ -51,28 +45,66 @@
 
 <p>For example, you can send a push notification to all iOS users in Chicago, IL that says "Deep dish lovers unite! Help fund the largest pizza in the world on BootLoader."</p>
 
-<h1>
-<a id="solution---target-your-campaign-in-three-steps" class="anchor" href="#solution---target-your-campaign-in-three-steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solution - target your campaign in three steps</h1>
+<h2>
+<a id="solution---target-your-campaign-in-three-steps" class="anchor" href="#solution---target-your-campaign-in-three-steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solution - target your campaign in three steps</h2>
+
+<div id="filters">
+    <h3><a id="1-filter-your-data" class="anchor" href="#1-filter-your-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Filter your data</h3>
+    <p>Only events from selected categories will be used in the analysis.</p>
+    <select id="filter">
+      <option value="s">Sports</option>
+      <option value="e">Environment</option>      
+      <option value="b">Both</option> 
+    </select>
+  </div>
+
+
+  <div id="dimensions">
+    <h3><a id="2-select-dimensions" class="anchor" href="#2-select-dimensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Select dimensions</h3>
+    <p>Decide how you want to segment your customers. Choose as many dimensions as necessary and experiment with their order. The more dimensions you select the more partitions you will find in the visualization which may become difficult to navigate but may offer much more detailed targetting of yur campaign.</p>
+    <div id="selected_dimensions"></div>
+    <select id="dimension">
+    </select>
+  </div>
+
+
+<div id="metrics">
+    <h3><a id="3-choose-metric" class="anchor" href="#3-choose-metric" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Choose metric</h3>
+    <p>Finally, select the metric you wish to visualize. The higher the value of the metric for given segment the darker its colour.</p>
+    <select id="metric">
+      <option value="a">Average donation per user</option>
+      <option value="t">Total donation of all users</option>
+    </select>
+</div>
+
+
+<div id="map">
+  <div id="preloader"><img src="images/ajax-loader.gif"/></div>
+  <div id="treemap"></div>
+</div>
+<div id="segments">
+    <h4>Details of the selected segment:</h4>
+    <div id="text"></div>
+</div>
 
 <h2>
-<a id="1-filter-your-data" class="anchor" href="#1-filter-your-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Filter your data</h2>
+<a id="visualization" class="anchor" href="#visualization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interpretation</h2>
 
-<p>Only events from selected categories will be used in the analysis.</p>
+<p>This visualization represets a <a href="http://en.wikipedia.org/wiki/Treemapping">treemap</a> which a method of visualizing hierarchical datasets in a fixed size rectangle by recursively diving the space into smaller segments.</p>
 
-<h2>
-<a id="2-select-dimensions" class="anchor" href="#2-select-dimensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Select dimensions</h2>
+<p>In this example space is divided into segments selected by you in step 2. Size of each segment is proportional to the number of users in the segment i.e. segments with many users will be visible as big rectangles on the map. Colour of the segment depends on the metric chosen by you in step 3. The darker it is the higher the value of the metric.</p>
 
-<p>Decide how you want to segment your customers. Choose as many dimensions as necessary and experiment with their order.</p>
-
-<h2>
-<a id="3-choose-metric" class="anchor" href="#3-choose-metric" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Choose metric</h2>
-
-<p>Finally, select the metric you wish to visualize. Segments with high value of this metric will be displayed with dark green.</p>
+<p>For example (if you have not changed any settings) you should see one significantly darker segment in the top left-hand corner of the visualization. Even though it is small and has only 7 users (at least in our sample) the average donation made by user is the highest amongst all other segments. Mouse over it and you will see all details - those are android users in AR with average donation per user of 67.14$. Maybe that's where we want to send the push notification. We can identify many interesting segments like this depending on budget of our campaign and metrics that are important for us. Give it a try and find other interesting groups!
+</p>
 
 <h2>
-<a id="visualization" class="anchor" href="#visualization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Visualization</h2>
+<a id="visualization" class="anchor" href="#visualization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Technical details</h2>
 
-<p>This interactive visualization represents a treemap and was done using D3.js.</p>
+<p>This interactive visualization represents a treemap and was done using <a href="http://d3js.org/">D3.js</a> starting from <a href="http://bl.ocks.org/mbostock/4063582">this</a> template.</p>
+
+<p>Due to significant size of the data.json file it was filtered and only events from Sports and Environment categories were kept.</p>
+
+<p>To run locally on your own machine download project archive, extract it and point your favourite web server to the project folder. You can do it for example by running <code>python -m SimpleHTTPServer</code> inside the main folder (folder which contains index.html file) and then pointing your favourite browser to http://localhost:8000/</p>
 
 <h2>
 <a id="the-data" class="anchor" href="#the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Data</h2>
@@ -171,7 +203,8 @@
       </footer>
     </div>
 
-    
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="javascripts/treemap.js"></script>    
 
   </body>
 </html>

@@ -56,5 +56,5 @@ shinyUI(fluidPage(theme='bootstrap.min.css',
                       )
                   ),
                   p(tags$a(href = 'http://www.runzemc.com', 'www.runzemc.com')),
-                  p(tags$a(href = 'https://github.com/Runze/data_viz_challenge', 'https://github.com/Runze'))
+                  p(tags$a(href = 'https://github.com/Runze/data-viz-challenge', 'https://github.com/Runze'))
 ))

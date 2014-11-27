@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Localytics-Data Visualization</title>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+
+<body style="height: 100%; margin: 0;">
+	<div class="container">
+		<div class="page-header">
+		  <h1>Bicycle Project <small>  Analysis</small></h1>
+		</div>
+
+		<div class="div_button">
+			<h3><small>Event</small></h3>
+			<div class="btn-group btn-event" role="group" aria-label="...">
+			  <button type="button" class="btn btn-default active" id="all">All</button>
+			  <button type="button" class="btn btn-default" id="View Project">View Project</button>
+			  <button type="button" class="btn btn-default" id="Fund Project">Fund Project</button>
+			</div>
+		</div>
+		<div class="div_button">
+			<h3><small>Category</small></h3>
+			<div class="btn-group btn-category" role="group" aria-label="...">
+			  <button type="button" class="btn btn-default active" id="age">Age</button>
+			  <button type="button" class="btn btn-default" id="gender">Gender</button>
+			  <button type="button" class="btn btn-default" id="marital_status">Marital Status</button>
+			</div>
+		</div>
+		<!-- <h2 id="h2_label"><small>Breakdown by</small> </h2> -->
+		<blockquote>
+		  <p id="p_blockquote">The breakdown by <span id="span_label"></span> for all users who participated in any event related to Sports and Environment</p>
+		</blockquote>
+		<div id="div_container"></div>
+	</div>
+</body>
+</html>

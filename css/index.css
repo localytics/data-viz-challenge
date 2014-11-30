@@ -1,0 +1,78 @@
+/*
+	Author: Michelle Suh
+	Think about:
+		1) Activities that go past one day to another.. how to cut that
+			off and manage as separate days  - this may just need to be
+			dealt with when saving the activities in the calendar as
+			two different days
+
+*/
+/*body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 960px;
+  height: 500px;
+  position: relative;
+}*/
+
+svg {
+	width: 100%;
+	height: 100%;
+}
+
+path.slice{
+	stroke-width:2px;
+}
+
+polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+}
+
+.div_button{
+	display: inline-block;
+	margin-left: 20px;
+}
+h3{
+	margin-top:10px;
+}
+#span_label{
+	color:#00A388;
+	font-weight: bold;
+	font-size: 25px;
+}
+blockquote{
+	margin:10px;
+}
+.labels{
+	fill: #737373;
+}
+
+.analysisType{
+	margin-top: 15px;
+	z-index: 50;
+}
+
+#p_description{
+	opacity: .4;
+}
+.btn-group{
+	/*position:block;*/
+}
+#div_container{
+	width:100%;
+	height:100%;
+}
+
+.div_leftGraph{
+	width:100%;
+	height:100%;
+}
+
+#h3_date{
+	font-family: 'Patrick Hand SC', cursive;
+	display: block;
+	margin-left: 150px;
+	width:10px;
+}

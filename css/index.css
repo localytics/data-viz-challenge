@@ -54,6 +54,9 @@ blockquote{
 	z-index: 50;
 }
 
+#p_description{
+	opacity: .4;
+}
 .btn-group{
 	/*position:block;*/
 }

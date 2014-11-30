@@ -1,10 +1,4 @@
 /*
-	Start localserver: python -m SimpleHTTPServer
-	Open in web: http://localhost:8000/
-*/
-
-
-/*
 	http://data-viz-challenge.localytics.com/
 
 	Task: You're the resident data expert at BootLoader. You'd like to create a 

@@ -10,9 +10,7 @@ module.exports = {
     },
 
   "globals": {
-    "d3": true,
-    "nodes": true,
-    "links": true
+    "d3": true
   },
 
   "rules": {
